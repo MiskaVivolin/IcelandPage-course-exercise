@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="islanti.css" />
+<script>
+    function changePage(id) {
+        var p1 = document.getElementById("sivu1")
+        var p2 = document.getElementById("sivu2")
+        
+        if(id == "etusivu") {
+            p1.style.visibility = "visible";
+            p2.style.visibility = "hidden";
+            p1.style.height = "auto";
+            p2.style.height = "0";
+        }
+        
+        else if(id == "kuva") {
+            p1.style.visibility = "hidden";
+            p2.style.visibility = "visible";
+            p1.style.height = "0";
+            p2.style.height = "auto";
+        }
+    }
+</script>
+<script>
+    window.onload = function() {
+        
+    
+        var canvas = document.getElementById('kuva1');
+        var context = canvas.getContext('2d');
+        var imageObj = new Image();
+        imageObj.onload = function() {
+            
+            var sourceX = 20;
+            var sourceY = 20;
+            var sourceWidth = 1280;
+            var sourceHeight = 782;
+            var destWidth = sourceWidth;
+            var destHeight = sourceHeight;
+            var destX = (canvas.width / 2 - destWidth / 2);
+            var destY = (canvas.height / 2 - destHeight / 2);
+            
+            context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight,
+            destX, destY, destWidth, destHeight)
+        };
+        imageObj.src = "images/iceland1.avif"
+        
+        var canvas2 = document.getElementById('kuva2');
+        var context2 = canvas2.getContext('2d');
+        var imageObj2 = new Image();
+        imageObj2.onload = function() {
+    
+            context2.scale(-1,1);
+    
+            var sourceX = 20;
+            var sourceY = 20;
+            var sourceWidth = 1280;
+            var sourceHeight = 782;
+            var destWidth = sourceWidth;
+            var destHeight = sourceHeight;
+            var destX = (canvas2.width / 2 - destWidth / 2);
+            var destY = (canvas2.height / 2 - destHeight / 2);
+        
+            context2.drawImage(imageObj2, sourceX, sourceY, sourceWidth, sourceHeight,
+            destX, destY, destWidth, destHeight)
+    };
+        imageObj2.src = "images/iceland1.avif"
+
+        var canvas3 = document.getElementById('kuva3');
+        var context3 = canvas3.getContext('2d');
+        var imageObj3 = new Image();
+        imageObj3.onload = function() {
+    
+            context3.scale(0.2,0.2);
+    
+            var sourceX = 20;
+            var sourceY = 20;
+            var sourceWidth = 1280;
+            var sourceHeight = 782;
+            var destWidth = sourceWidth;
+            var destHeight = sourceHeight;
+            var destX = (canvas3.width / 2 - destWidth / 2);
+            var destY = (canvas3.height / 2 - destHeight / 2);
+        
+            context3.drawImage(imageObj3, sourceX, sourceY, sourceWidth, sourceHeight,
+            destX, destY, destWidth, destHeight)
+    };
+        imageObj3.src = "images/iceland1.avif"
+    }
+            </script>
+</head>
+<body>
+    
+    <div class="kontti">
+        <div id="navi">
+            
+            <ul id="nav">
+                <li><a href="#" onClick="changePage('etusivu');">Islanti</a></li>    
+<li><a href="#" onClick="changePage('kuva');">Kuva Islannista</a></li>    
+</ul>
+
+</div>
+
+<div id="sivu1"><h1></h1>
+
+<h1>Islanti</h1>
+
+<p>Islanti on saarivaltio Atlantin valtameren pohjoisosassa, välittömästi pohjoisen napapiirin eteläpuolella.
+    Islanti on pinta-alaltaan (103 000) noin kolmasosan Suomesta ja väkiluvultaan (350 710) selvästi pienin Pohjoismaa. 
+    Maan pääkaupungissa Reykjavikissa asuu noin kolmannes Islannin väestöstä. 
+    Se on maailman pohjoisin itsenäisen valtion pääkaupunki.</p>
+
+<p>Saarella on aktiivista vulkaanista toimintaa: geysireitä, kuumia lähteitä ja toistuvia tulivuorenpurkauksia.
+    Luonto on karu ja omaleimainen</p>
+
+<h2>Islannin maantiede</h2>
+
+<p>Islannin valtio koostuu pääsaaren lisäksi lukuisista vähäisistä pikkusaarista ja luodoista.
+    Niistä suurimmat ovat Heimaey (noin 13km2), Hrisey (7,52km2) ja Grimsey (4,6km2).</p>
+
+<h2>Kasvillisuus</h2>
+
+<p>Vain neljännes islannin pinta-alasta on kasvillisuuden peittämää. 
+    Eroosio on voimakasta, ja sitä vastaan kamppailu on tärkeä osa luonnonsuojelua. 
+    Islannin lukuisat tulivuorenpurkaukset, merituuli ja lampaiden laiduntaminen ovat osaltaan aiheuttanut sen, että Islannin luonto on karu ja autio</p>
+    Maassa kasvaa kuitenkin lukuisia kasveja; villejä lajeja tunnetaan useita satoja. 
+    Enimmäkseen ne ovat matalakasvuisia arktisten alueiden kasveja.
+
+<h1>Kuva Islannista</h1>
+
+<p>Godafossin vesiputous sijaitsee Akueryrin kunnassa Islannin pohjoisrannikolla. 
+    Akyreria kutsutaan pohjois-Islannin pääkaupungiksi ja se on Reykjavikin jälkeen Islannin toiseksi suurin kaupunki</p>
+
+
+</div>
+<div id="sivu2"><h1>Kuva Islannista</h1>
+
+<h2>kuvan rajaus (crop)</h2>
+<canvas id="kuva1"></canvas>
+
+<h2>Peilikuva ja rajaus (mirror & crop)</h2>
+<canvas id="kuva2"></canvas>
+<h2>kuvan skaalaus (scale)</h2>
+<canvas id="kuva3"></canvas>
+<h2>Alkuperäinen kuva</h2>
+    
+  <img id="coast" width="320" height="220"
+  src="images/iceland1.avif" alt="coast">
+
+</div>
+</body>
+
+</html>
